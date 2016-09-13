@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+    <LinearLayout
+        android:id="@+id/text_area"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+	    <EditText
+	        android:id="@+id/input_text"
+	        android:layout_weight="1"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:maxHeight="80dp"
+	        android:scrollbars="vertical"
+	        android:hint="@string/input_text" />
+	    <Button
+	        android:onClick="randomMessage"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/randomize"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/photos"
+        android:layout_below="@id/text_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/photos_choose"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:adjustViewBounds="true"
+            android:padding="15dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/photo"
+            android:src="@android:drawable/ic_menu_camera" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:contentDescription="@string/photo"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:src="@android:color/transparent" />
+       
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/recipient_area"
+        android:layout_below="@id/photos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@+string/contacts"
+            android:adjustViewBounds="true"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:onClick="onClickContacts"
+            android:src="@drawable/ic_action_user_add" />
+
+	    <TextView
+	        android:id="@+id/show_recipient"
+	        android:layout_weight="1"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:textSize="16sp"
+	        android:maxLines="2"
+	        android:scrollHorizontally="true"
+	        android:scrollbars="vertical"
+	        android:text="@string/input_recipient" />
+	    <Button
+	        android:onClick="randomRecipient"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/randomize"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/send"
+        android:onClick="send"
+        android:layout_below="@id/recipient_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/send" />
+        
+</RelativeLayout>
